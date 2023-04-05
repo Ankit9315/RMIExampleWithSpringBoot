@@ -1,0 +1,44 @@
+package RMISpringClient;
+
+import java.rmi.RemoteException;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import RMISpringServer.Entity.Products;
+import RMISpringServer.Service.ProductService;
+
+//import RMISpringClient.Service.ProductService;
+
+@SpringBootApplication
+public class RmiSpringClientApplication {
+	
+
+	
+	public static void main(String[] args) {
+	//	SpringApplication.run(RmiSpringClientApplication.class, args);
+	
+//		ApplicationContext application=SpringApplication.run(RmiSpringClientApplication.class, args);
+//		ProductService productService = application.getBean(ProductService.class);
+//		try {
+//			List<Products> products = productService.getProducts();
+//			Object[] object = {"Namkeen",20,2};
+//			for(Products prod : products) {
+//				System.out.println(prod.toString());
+//			}
+//			String result = productService.addProduct(object);
+//			System.out.println(result);
+//			
+//			System.out.println(productService.getById(3));
+//			
+//			System.out.println(productService.deleteById(4));
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+	}
+
+}

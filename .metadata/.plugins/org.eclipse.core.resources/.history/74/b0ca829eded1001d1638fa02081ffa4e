@@ -1,0 +1,5 @@
+package RMISpringServer.Entity;
+
+public class Products {
+
+}

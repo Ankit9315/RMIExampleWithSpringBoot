@@ -1,0 +1,38 @@
+package Server;
+
+import java.rmi.RemoteException;
+import java.rmi.server.*;
+
+public class ProductImpl extends UnicastRemoteObject implements Product{
+	
+	public String name;
+	public int quantity;
+	public int price;
+
+	@Override
+	public String getName() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.name;
+	}
+
+	@Override
+	public int getQuantity() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.quantity;
+	}
+	
+	@Override
+	public int getPrice() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.price;
+	}
+
+	public ProductImpl(String name, int quantity, int price) throws RemoteException{
+		super();
+		this.name = name;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
+	
+}

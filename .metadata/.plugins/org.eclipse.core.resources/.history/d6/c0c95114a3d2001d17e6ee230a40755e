@@ -1,0 +1,12 @@
+package RMISpringClient.Entity;
+
+public class Products {
+
+	int id;
+	
+	int price;
+	
+	int quantity;
+	
+	String name;
+}

@@ -1,0 +1,54 @@
+package RMISpringServer.Configuration;
+
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.remoting.rmi.RmiServiceExporter;
+import org.springframework.remoting.support.RemoteExporter;
+
+import RMISpringServer.Service.ProductImplementation;
+import RMISpringServer.Service.ProductService;
+
+@Configuration
+public class Config {
+
+	@Bean
+	RemoteExporter registerRMIExporter() {
+		
+		RmiServiceExporter exporter = new RmiServiceExporter();
+		try {
+			
+		Registry registry = LocateRegistry.createRegistry(2001);
+		Remote remote = new ProductImplementation();
+		ProductService stub =(ProductService) UnicastRemoteObject.exportObject(remote, 0);
+		registry.rebind("products", stub);
+		exporter.setServiceName("products");
+		exporter.setRegistry(registry);
+		exporter.setServiceInterface(ProductService.class);
+		exporter.setService(new ProductImplementation());
+		
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return exporter;
+	}
+	
+//	@Bean
+//	public Registry registry() throws RemoteException {
+//		
+//		return LocateRegistry.getRegistry(1099);
+//	}
+//	
+//	@Bean
+//	public ProductService productService() throws RemoteException{
+//		return new ProductImplementation();
+//	}
+	
+}

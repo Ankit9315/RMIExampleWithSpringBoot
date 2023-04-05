@@ -1,0 +1,5 @@
+package RMISpringServer.Service;
+
+public interface ProductService {
+
+}

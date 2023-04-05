@@ -1,0 +1,6 @@
+package RMISpringServer.Service;
+
+public interface Product {
+
+	public void getProducts(String message);
+}

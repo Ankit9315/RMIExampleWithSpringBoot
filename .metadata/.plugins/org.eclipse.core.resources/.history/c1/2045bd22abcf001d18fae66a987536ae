@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author ankit.pal
+ *
+ */
+module RMIExampleWithDatabase {
+	requires java.rmi;
+	requires java.sql;
+}

@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author ankit.pal
+ *
+ */
+module RMI {
+	exports Server;
+}

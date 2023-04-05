@@ -1,0 +1,8 @@
+package RMISpringServer.Repo;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProductsRepo extends JpaRepository<Products,int>{
+
+}

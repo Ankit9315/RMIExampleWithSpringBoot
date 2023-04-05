@@ -1,0 +1,53 @@
+package RMISpringClient;
+
+import java.rmi.RemoteException;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.remoting.rmi.RmiProxyFactoryBean;
+
+import RMISpringServer.Entity.Products;
+import RMISpringServer.Service.ProductService;
+
+//import RMISpringClient.Service.ProductService;
+
+@SpringBootApplication
+public class RmiSpringClientApplication {
+	
+//	@Bean
+//	RmiProxyFactoryBean rmiProxyBean() {
+//		
+//		RmiProxyFactoryBean bean = new RmiProxyFactoryBean();
+//		bean.setServiceInterface(ProductService.class);
+//		bean.setServiceUrl("rmi://localhost:1099/products");
+//		System.out.println("Client is running");
+//		
+//		System.out.println();
+//		return bean;
+//		
+//	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(RmiSpringClientApplication.class, args);
+//		ApplicationContext applicaition=SpringApplication.run(RmiSpringClientApplication.class, args);
+//		ProductService productService = applicaition.getBean(ProductService.class);
+//		if(productService != null) {
+//			System.out.println(productService);
+//		}
+//		
+//		try {
+//			System.out.println(productService.getString(" Ankit"));
+//			List<Products> products = productService.getProducts();
+//			for(Products product : products) {
+//				System.out.println(product.toString());
+//			}
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+
+}

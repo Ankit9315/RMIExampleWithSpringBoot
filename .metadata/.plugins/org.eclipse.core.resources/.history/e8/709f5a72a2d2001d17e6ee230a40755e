@@ -1,0 +1,30 @@
+package RMISpringClient;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.remoting.rmi.RmiProxyFactoryBean;
+
+import RMISpringClient.Service.ProductService;
+
+@SpringBootApplication
+public class RmiSpringClientApplication {
+	
+	@Bean
+	RmiProxyFactoryBean rmiProxyBean() {
+		
+		RmiProxyFactoryBean bean = new RmiProxyFactoryBean();
+		bean.setServiceInterface(ProductService.class);
+		bean.setServiceUrl("rmi://localhost:1099/products");
+		System.out.println("Client is running");
+		
+		System.out.println();
+		return bean;
+		
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(RmiSpringClientApplication.class, args);
+	}
+
+}

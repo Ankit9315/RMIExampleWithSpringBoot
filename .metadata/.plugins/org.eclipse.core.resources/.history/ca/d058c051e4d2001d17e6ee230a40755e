@@ -1,0 +1,44 @@
+package RMISpringClient;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.remoting.rmi.RmiProxyFactoryBean;
+
+import RMISpringServer.Entity.Products;
+import RMISpringServer.Service.ProductService;
+
+//import RMISpringClient.Service.ProductService;
+
+@SpringBootApplication
+public class RmiSpringClientApplication {
+	
+
+	public static void main(String[] args) {
+	//	SpringApplication.run(RmiSpringClientApplication.class, args);
+	
+		ApplicationContext applicaition=SpringApplication.run(RmiSpringClientApplication.class, args);
+		ProductService productService = applicaition.getBean(ProductService.class);
+		if(productService != null) {
+			System.out.println(productService);
+		}
+		
+		try {
+			System.out.println(productService.getString(" Ankit"));
+			List<Products> products = productService.getProducts();
+			for(Products product : products) {
+				System.out.println(product.toString());
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

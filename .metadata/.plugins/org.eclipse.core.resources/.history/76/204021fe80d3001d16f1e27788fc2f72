@@ -1,0 +1,23 @@
+package RMISpringClient.Controler;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import RMISpringServer.Service.ProductService;
+
+@RestController
+public class Controller {
+
+	 @Autowired
+	 private ApplicationContext context;
+	 
+	@GetMapping("/products")
+	public List getAllProducts() {
+		ProductService productService = context.getBean(ProductService.class)
+		return productService.getProducts();
+	}
+}

@@ -1,0 +1,5 @@
+package RMISpringClient.Config;
+
+public class ClientConfiguration {
+
+}

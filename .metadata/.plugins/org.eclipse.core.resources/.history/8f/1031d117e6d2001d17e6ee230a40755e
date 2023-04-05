@@ -1,0 +1,13 @@
+package RMISpringServer.Service;
+
+import java.rmi.RemoteException;
+import java.util.List;
+
+import RMISpringServer.Entity.Products;
+
+public interface ProductService {
+
+public List<Products> getProducts() throws RemoteException;
+	
+	public String getString(String msg) throws RemoteException;
+}

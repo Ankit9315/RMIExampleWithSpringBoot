@@ -1,0 +1,17 @@
+package RMISpringServer.Service;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import RMISpringServer.Entity.Products;
+import RMISpringServer.Repo.ProductsRepo;
+
+public interface ProductService extends Remote{
+	
+	public List<Products> getProducts() throws RemoteException;
+	
+	public String getString(String msg) throws RemoteException;
+}

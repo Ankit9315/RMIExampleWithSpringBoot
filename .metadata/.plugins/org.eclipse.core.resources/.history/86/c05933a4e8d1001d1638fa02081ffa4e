@@ -1,0 +1,22 @@
+package RMISpringServer.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import RMISpringServer.Entity.Products;
+import RMISpringServer.Repo.ProductsRepo;
+
+public class ProductImplementation implements ProductService{
+	
+	@Autowired
+	private ProductsRepo productsRepo;
+
+	@Override
+	public List<Products> getProducts() {
+		// TODO Auto-generated method stub
+		return productsRepo.findAll();
+	}
+ 
+	
+}

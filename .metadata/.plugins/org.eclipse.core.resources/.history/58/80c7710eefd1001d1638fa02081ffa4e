@@ -1,0 +1,28 @@
+package RMISpringServer.Configuration;
+
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import RMISpringServer.Service.ProductImplementation;
+import RMISpringServer.Service.ProductService;
+
+@Configuration
+public class Config {
+
+	@Bean
+	public Registry registry() throws RemoteException {
+		System.out.println(LocateRegistry.getRegistry());
+		return LocateRegistry.createRegistry(1099);
+	}
+	
+	@Bean
+	public ProductService productService() throws RemoteException {
+		return new ProductImplementation();
+	}
+	
+}

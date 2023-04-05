@@ -1,0 +1,46 @@
+package Server;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+public class Server {
+	
+	public static void main(String[] aargs) {
+		
+		
+		try {
+			
+			System.setProperty("java.rmi.server.hostname", "127.0.0.1");
+			
+			//Create Product object
+			Product p1=new ProductImpl("Samosa",4,20);
+			Product p2=new ProductImpl("Pizza",2,25);
+			Product p3=new ProductImpl("Rasugulla",1,60);
+			Product p4=new ProductImpl("red chilli",8,20);
+			
+			// Export objects using UnicastRemoteObject.class
+			Product stub1=(Product) UnicastRemoteObject.exportObject(p1, 0);
+			Product stub2=(Product) UnicastRemoteObject.exportObject(p2, 0);
+			Product stub3=(Product) UnicastRemoteObject.exportObject(p3, 0);
+			Product stub4=(Product) UnicastRemoteObject.exportObject(p4, 0);
+			
+			// Register the exported class in RMI registry
+//			Client will use that name to get the reference of those exported objects
+			
+			// get the registry to register the object with some name
+			Registry registry=LocateRegistry.getRegistry("127.0.0.1",9000);
+			
+			registry.rebind("a", stub1);
+			registry.rebind("b", stub2);
+			registry.rebind("c", stub3);
+			registry.rebind("d", stub4);
+			
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

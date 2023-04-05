@@ -1,0 +1,36 @@
+package Client;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import Server.Product;
+
+public class Client {
+
+	public static void main(String[] aargs) {
+		
+		try {
+			
+          // locate the Registry
+			Registry registry=LocateRegistry.getRegistry(1886);
+			
+		//  Get the reference of exported  object of  Rmi registry
+			Product p1=(Product) registry.lookup("a");
+			Product p2=(Product) registry.lookup("b");
+			Product p3=(Product) registry.lookup("c");
+			Product p4=(Product) registry.lookup("d");
+			
+			String s1= p1.getName();
+			
+		// Now we can invoke the methods of referenced objects
+			System.out.println(p1.getName() +" "+p1.getQuantity()+" "+p1.getPrice());
+			System.out.println(p2.getName() +" "+p2.getQuantity()+" "+p2.getPrice());
+			System.out.println(p3.getName() +" "+p3.getQuantity()+" "+p3.getPrice());
+			System.out.println(p4.getName() +" "+p4.getQuantity()+" "+p4.getPrice());
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

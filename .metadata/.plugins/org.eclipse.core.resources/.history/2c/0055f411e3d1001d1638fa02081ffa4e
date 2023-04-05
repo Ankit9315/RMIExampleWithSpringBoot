@@ -1,0 +1,12 @@
+package RMISpringServer.Service;
+
+public class ProductImplementation implements ProductService{
+
+	@Override
+	public String getProducts() {
+		// TODO Auto-generated method stub
+		return " Hello my friends";
+	}
+ 
+	
+}
